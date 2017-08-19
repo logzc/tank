@@ -5,6 +5,6 @@ import (
 )
 
 func main() {
-	fmt.Println("Hello Tank")
+	fmt.Println("Hello Tank.")
 
 }
