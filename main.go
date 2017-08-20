@@ -1,10 +1,12 @@
 package main
 
 import (
+	_ "github.com/go-sql-driver/mysql"
+	"tank/rest/user"
 	"fmt"
 )
 
 func main() {
-	fmt.Println("Hello Tank.")
-
+	user0 := user.FindById(1)
+	fmt.Printf("email = %s", user0.Email)
 }
