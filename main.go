@@ -3,10 +3,14 @@ package main
 import (
 	_ "github.com/go-sql-driver/mysql"
 	"tank/rest/user"
-	"fmt"
+	"log"
+	"net/http"
 )
 
 func main() {
-	user0 := user.FindById(1)
-	fmt.Printf("email = %s", user0.Email)
+	http.HandleFunc("/", user.Login)
+	err := http.ListenAndServe(":9090", nil)
+	if err != nil {
+		log.Fatal("ListenAndServe: ", err)
+	}
 }
