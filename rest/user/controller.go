@@ -28,6 +28,5 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	}
 
 	result.OutputSuccess(w, "登录成功")
-	return
 
 }

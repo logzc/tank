@@ -41,11 +41,12 @@ func (this *UserDao) closeDb() {
 //按照Id查询用户
 func (this *UserDao) FindById(id uint) (*User) {
 
+	this.openDb()
+
 	// Read
 	var user User
-
-	this.openDb()
 	this.db.First(&user, id)
+
 	this.closeDb()
 
 	return &user
@@ -53,10 +54,10 @@ func (this *UserDao) FindById(id uint) (*User) {
 
 //按照邮箱查询用户。
 func (this *UserDao) FindByEmail(email string) (*User) {
+	
+	this.openDb()
 
 	var user User
-
-	this.openDb()
 	this.db.Where(&User{Email: email}).First(&user)
 	this.closeDb()
 
